@@ -7,6 +7,8 @@ import Vans from "./pages/Vans"
 import Host from "./pages/Host"
 import Layout from "./components/Layout"
 
+import "./server"
+
 function App() {
   return (
     <BrowserRouter>
@@ -14,7 +16,7 @@ function App() {
         <Route element={<Layout/>}>
           <Route path="/" element={<Home />} /> 
           <Route path="/about" element={<About />} />  
-          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans" element={<Vans server="/api/vans" />} />
           <Route path="/host" element={<Host />} /> 
           </Route>
        </Routes>
