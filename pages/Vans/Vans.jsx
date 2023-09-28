@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams} from "react-router-dom";
 export default function Vans() {
   const [vans, setVans] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams({})
+  
+  const URL = searchParams.get(`type`)
+ 
   useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans));
   }, []);
 
-  const vanElements = vans.map((van) => (
+  const vansDetails = URL ? vans.filter(url => url.type === URL) : vans
+
+  const vanElements = vansDetails.map((van) => (
     <div key={van.id} className="van-tile">
       <Link to={`/vans/${van.id}`}>
         <img src={van.imageUrl} />
@@ -26,6 +32,11 @@ export default function Vans() {
 
   return (
     <div className="van-list-container">
+       <h1>Explore our van options</h1>
+       <button onClick={() => setSearchParams({type: "simple"})}>Simple</button>
+       <button onClick={() => setSearchParams({type: "luxury"})}>Luxury</button>
+       <button onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
+       <button onClick={() => setSearchParams({})}>Clear filter</button>
       <div className="van-list">{vanElements}</div>
     </div>
   );

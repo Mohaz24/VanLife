@@ -1,7 +1,13 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
+  const activeStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  };
+
   return (
     <header>
       <Link className="site-logo" to="/">
@@ -9,20 +15,20 @@ export default function Header() {
       </Link>
       <nav>
         <NavLink
-          className={({ isActive }) => (isActive ? "nav-links" : "")}
           to="/host"
+          style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Host
         </NavLink>
         <NavLink
-          className={({ isActive }) => (isActive ? "nav-links" : "")}
           to="/about"
+          style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           About
         </NavLink>
         <NavLink
-          className={({ isActive }) => (isActive ? "nav-links" : "")}
           to="/vans"
+          style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Vans
         </NavLink>
