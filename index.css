@@ -22,7 +22,6 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  scroll-behavior: smooth;
 }
 
 .site-wrapper {
