@@ -1,10 +1,21 @@
-// A function whose only purpose is to delay execution
-// for the specified # of milliseconds when used w/ `await`
-// e.g. inside an async function:
-// await sleep(2000)  => pauses the function for 2 seconds before moving on
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(() => resolve(), ms));
-}
+// import { initializeApp } from "firebase/app";
+// import { getFirestore } from "firebase/firestore/lite"
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyD5DcoRn-65uW5sdCZ6eXe0a7sYykslS0M",
+//   authDomain: "vanlife-2bab2.firebaseapp.com",
+//   projectId: "vanlife-2bab2",
+//   storageBucket: "vanlife-2bab2.appspot.com",
+//   messagingSenderId: "998376518286",
+//   appId: "1:998376518286:web:e21273e45dc336da58cfdf"
+// };
+
+
+// const app = initializeApp(firebaseConfig);
+// const db = getFirestore(app)
+
+
+
 
 export async function getVans(id) {
   const url = id ? `/api/vans/${id}` : "/api/vans";

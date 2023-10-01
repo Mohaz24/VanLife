@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 import { getHostVans } from "../../api";
+import { RotatingLines } from  'react-loader-spinner'
 
 export default function HostVanDetail() {
   const [currentVan, setCurrentVan] = React.useState(null);
@@ -25,7 +26,13 @@ export default function HostVanDetail() {
   }, [id]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return  <RotatingLines
+    strokeColor="grey"
+    strokeWidth="5"
+    animationDuration="0.75"
+    width="96"
+    visible={true}
+  />;
   }
 
   if (error) {

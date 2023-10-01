@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { getVans } from "../../api";
+import { RotatingLines } from "react-loader-spinner";
 
 export default function VanDetail() {
   const [van, setVan] = React.useState(null);
@@ -25,7 +26,15 @@ export default function VanDetail() {
   }, [id]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <RotatingLines
+        strokeColor="grey"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="96"
+        visible={true}
+      />
+    );
   }
 
   if (error) {
@@ -50,7 +59,9 @@ export default function VanDetail() {
             <span>${van.price}</span>/day
           </p>
           <p>{van.description}</p>
-          <button className="link-button">Rent this van</button>
+          <Link to="/login" className="link-button">
+            Rent this van
+          </Link>
         </div>
       )}
     </div>

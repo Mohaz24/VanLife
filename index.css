@@ -22,6 +22,7 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .site-wrapper {
@@ -60,6 +61,20 @@ header a:hover {
 header .login-icon {
   height: 18px;
   width: 18px;
+}
+
+header .log-out-icon {
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 1px;
+}
+
+header .log-out-icon:hover {
+  color: red;
 }
 
 header .login-link {
@@ -740,3 +755,4 @@ img.graph {
   color: #ff8c38;
   margin-right: 5px;
 }
+
